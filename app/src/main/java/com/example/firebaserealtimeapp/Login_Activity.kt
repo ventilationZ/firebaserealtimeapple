@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 class Login_Activity : AppCompatActivity() {
     private lateinit var Btnlogin :Button
@@ -25,6 +26,21 @@ class Login_Activity : AppCompatActivity() {
             startActivity(gotoreg)
         }
         Btnlogin.setOnClickListener {
+            var email = EdtEmail.text.toString().trim()
+            var password = EdtPassword.text.toString().trim()
+
+            //Validate user info
+            if (email.isEmpty()||password.isEmpty())
+                Toast.makeText(this, "Can't submit an Empty Field", Toast.LENGTH_SHORT).show()
+            else{
+                auth.signInWithEmailAndPassword(email, password).addOnCanceledListener(this) {
+                    if (it.isSuccessful)
+                        Toast.makeText(this, "User Created Successfully", Toast.LENGTH_SHORT).show()
+                    var gotologin =Intent(this, Login_Activity::class.java)
+                    startActivity(gotologin)
+                    else {
+                    Toast.makeText(this, "Failed to create an Account", Toast.LENGTH_SHORT).show()
+                }
 
         }
     }
