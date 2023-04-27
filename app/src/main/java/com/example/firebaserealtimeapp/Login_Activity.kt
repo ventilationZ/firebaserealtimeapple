@@ -6,12 +6,15 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 
 class Login_Activity : AppCompatActivity() {
     private lateinit var Btnlogin :Button
     private lateinit var BtnRegister :Button
     private lateinit var EdtEmail :TextView
     private lateinit var EdtPassword :TextView
+    //Initialise Firebase
+    lateinit var auth:FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -20,6 +23,7 @@ class Login_Activity : AppCompatActivity() {
         EdtEmail = findViewById(R.id.edtemail)
         EdtPassword = findViewById(R.id.edtpassword)
 
+        auth= FirebaseAuth.getInstance()
         BtnRegister.setOnClickListener {
 //            Navigate user to the registration page
             var gotoreg = Intent(this,RegisterActivity::class.java)
@@ -34,14 +38,16 @@ class Login_Activity : AppCompatActivity() {
                 Toast.makeText(this, "Can't submit an Empty Field", Toast.LENGTH_SHORT).show()
             else{
                 auth.signInWithEmailAndPassword(email, password).addOnCanceledListener(this) {
-                    if (it.isSuccessful)
+                    if (it.is)
                         Toast.makeText(this, "User Created Successfully", Toast.LENGTH_SHORT).show()
-                    var gotologin =Intent(this, Login_Activity::class.java)
-                    startActivity(gotologin)
+                        var gotomain =Intent(this, MainActivity::class.java)
+                        startActivity(gotomain)
                     else {
                     Toast.makeText(this, "Failed to create an Account", Toast.LENGTH_SHORT).show()
                 }
 
+                }
+            }
         }
     }
 }
