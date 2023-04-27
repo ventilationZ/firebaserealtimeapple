@@ -10,43 +10,35 @@
         android:id="@+id/edtemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
         android:ems="10"
         android:hint="Enter your EmailAddress"
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toStartOf="@+id/btnlogin"
-        app:layout_constraintStart_toStartOf="@+id/btnregister"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="64dp" />
 
     <EditText
         android:id="@+id/edtpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
         android:ems="10"
         android:hint="Enter your Password"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/btnlogin"
-        app:layout_constraintStart_toEndOf="@+id/btnregister"
-        app:layout_constraintTop_toBottomOf="@+id/edtemail" />
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="120dp" />
 
     <Button
         android:id="@+id/btnregister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="45dp"
         android:text="Register"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtpassword" />
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="198dp" />
 
     <Button
         android:id="@+id/btnlogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="55dp"
         android:text="Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtpassword" />
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="246dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
