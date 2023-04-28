@@ -38,16 +38,16 @@ class Login_Activity : AppCompatActivity() {
             if (email.isEmpty()||password.isEmpty())
                 Toast.makeText(this, "Can't submit an Empty Field", Toast.LENGTH_SHORT).show()
             else{
-                auth.signInWithEmailAndPassword(email, password).addOnCanceledListener(this) {
-                    if (it.isSuccessful)
+                auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) {
+                    if (it.isSuccessful) {
                         Toast.makeText(this, "User Created Successfully", Toast.LENGTH_SHORT).show()
                         var gotomain =Intent(this, MainActivity::class.java)
                         startActivity(gotomain)
-                    else {
-                    Toast.makeText(this, "Failed to create an Account", Toast.LENGTH_SHORT).show()
-                }
 
-                }
+
+                }   else {
+                        Toast.makeText(this, "Failed to create an Account", Toast.LENGTH_SHORT).show()
+                    }
             }
         }
     }
