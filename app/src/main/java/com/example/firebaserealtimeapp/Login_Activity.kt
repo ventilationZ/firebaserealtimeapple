@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
+
 class Login_Activity : AppCompatActivity() {
     private lateinit var Btnlogin :Button
     private lateinit var BtnRegister :Button
@@ -38,7 +39,7 @@ class Login_Activity : AppCompatActivity() {
                 Toast.makeText(this, "Can't submit an Empty Field", Toast.LENGTH_SHORT).show()
             else{
                 auth.signInWithEmailAndPassword(email, password).addOnCanceledListener(this) {
-                    if (it.is)
+                    if (it.isSuccessful)
                         Toast.makeText(this, "User Created Successfully", Toast.LENGTH_SHORT).show()
                         var gotomain =Intent(this, MainActivity::class.java)
                         startActivity(gotomain)
