@@ -37,12 +37,12 @@ class RegisterActivity : AppCompatActivity() {
             if (name.isEmpty()||email.isEmpty()||password.isEmpty())
                 Toast.makeText(this, "Can't submit an Empty Field", Toast.LENGTH_SHORT).show()
             else{
-                auth.createUserWithEmailAndPassword(email, password).addOnCanceledListener(this) {
-                    if (it.isSuccessful)
+                auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) {
+                    if (it.isSuccessful){
                     Toast.makeText(this, "User Created Successfully", Toast.LENGTH_SHORT).show()
                         var gotologin =Intent(this, Login_Activity::class.java)
                         startActivity(gotologin)
-                    else {
+                    }else {
                     Toast.makeText(this, "Failed to create an Account", Toast.LENGTH_SHORT).show()
                     }
                 }
