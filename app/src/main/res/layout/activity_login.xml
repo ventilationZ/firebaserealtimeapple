@@ -41,4 +41,12 @@
         android:text="Login"
         tools:layout_editor_absoluteX="47dp"
         tools:layout_editor_absoluteY="246dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="323dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
