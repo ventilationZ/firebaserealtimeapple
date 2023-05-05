@@ -1,6 +1,7 @@
 package com.example.firebaserealtimeapp
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -56,6 +57,8 @@ class MainActivity : AppCompatActivity() {
         }
         //View Uploaded Data
         BtnView.setOnClickListener {
+            var viewcars = Intent(this, ViewCars::class.java)
+
 
 
 
